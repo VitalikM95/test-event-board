@@ -7,13 +7,19 @@ import router from './routes'
 
 dotenv.config()
 const app = express()
-connectDB()
 
-app.use(cors())
+app.use(
+  cors({
+    origin: ['https://test-event-board-server.vercel.app/'],
+    methods: ['GET', 'POST'],
+    credentials: true,
+  })
+)
 app.use(express.json())
 
+connectDB()
 app.use('/api', router)
 
-const PORT = process.env.PORT || 5000
+const PORT = 4444 || 5000
 
 app.listen(PORT, () => console.log(`Server running on port - ${PORT}`))

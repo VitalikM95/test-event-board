@@ -5,7 +5,9 @@ dotenv.config()
 
 const connectDB = async () => {
   mongoose
-    .connect(process.env.MONGO)
+    .connect(
+      'mongodb+srv://admin:wwwwwwww@shoes-cluster.depshum.mongodb.net/?retryWrites=true&w=majority'
+    )
     .then(() => {
       console.log(`MongoDB is OK`)
     })
